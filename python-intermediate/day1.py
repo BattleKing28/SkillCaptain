@@ -10,32 +10,32 @@ class BankAccount:
         else:
             print("Please enter supported values")
 
-    def deposit_money(self, amountToDeposit):
-        if amountToDeposit < 1:
-            print(f"Cannot add {amountToDeposit} amount")
+    def deposit_money(self, amount_to_deposit):
+        if amount_to_deposit < 1:
+            print(f"Cannot add {amount_to_deposit} amount")
             return
 
         try:
-            self.account_balance += amountToDeposit
+            self.account_balance += amount_to_deposit
         except Exception as err:
             print(err)
             return
         print(
-            f"Successfully deposited {amountToDeposit} in your account, your new balance is {self.account_balance}"
+            f"Successfully deposited {amount_to_deposit} in your account, your new balance is {self.account_balance}"
         )
 
-    def withdraw_money(self, amountToWithdraw):
-        if amountToWithdraw < 1 or amountToWithdraw > self.account_balance:
-            print(f"Cannot withdraw {amountToWithdraw} amount")
+    def withdraw_money(self, amount_to_withdraw):
+        if amount_to_withdraw < 1 or amount_to_withdraw > self.account_balance:
+            print(f"Cannot withdraw {amount_to_withdraw} amount")
             return
         try:
-            self.account_balance -= amountToWithdraw
+            self.account_balance -= amount_to_withdraw
         except Exception as err:
             print(err)
             return
 
         print(
-            f"Successfully withdrawn {amountToWithdraw} from your account, your new balance is {self.account_balance}"
+            f"Successfully withdrawn {amount_to_withdraw} from your account, your new balance is {self.account_balance}"
         )
 
     def display_account_info(self):
