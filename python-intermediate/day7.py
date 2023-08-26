@@ -18,11 +18,11 @@ class User:
             f"Username: {self.user_name}\n EmailId: {self.user_email}\n Password: {self.user_password}"
         )
 
-    def __str__(self) -> str:
-        return f"user_name: {self.user_name}\n user_email: {self.user_email}\n user_password: {self.user_password}"
+    # def __str__(self) -> str:
+    #     return f"user_name: {self.user_name}\n user_email: {self.user_email}\n user_password: {self.user_password}"
 
     def __repr__(self) -> str:
-        return f"user_name: {self.user_name}\n user_email: {self.user_email}\n user_password: {self.user_password}"
+        return f"'user_name': {f'{self.user_name}'}, 'user_email': {f'{self.user_email}'},'user_password': {f'{self.user_password}'}"
 
 
 # register user function which checks if the user is already present the users list, if not it appends the new user to the list
@@ -33,7 +33,7 @@ def register_user(user_name, user_email, user_password):
             return
 
     current_user = User(user_name, user_email, str(hash(user_password)))
-    users.append({current_user})
+    users.append(current_user)
     # print(current_user)
     print("User registered successfully")
     return current_user
