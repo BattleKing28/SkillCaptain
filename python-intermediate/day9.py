@@ -9,6 +9,13 @@ class Product:
             f"Name: {self.product_name}\n Price: {self.product_price}\n Quantity: {self.product_quantity}\n"
         )
 
+    def __eq__(self, other) -> bool:
+        return (
+            self.product_name == other.product_name
+            and self.product_price == other.product_price
+            and self.product_quantity == other.product_quantity
+        )
+
 
 class Cart:
     def __init__(self, user_name):
@@ -29,14 +36,18 @@ class Cart:
                 print(f"{product_name} removed from cart\n")
                 return
         print("Product doesn't exist in the cart\n")
+        return "Product doesn't exist in the cart\n"
 
     def display_cart(self):
         print(f"Cart items for user: {self.user_name}")
         if not self.cart_items:
             print("Cart is empty.\n")
+            return "Cart is empty.\n"
         else:
+            cart_contents = []
             for item in self.cart_items:
-                item.display_product_info()
+                cart_contents.append(item)
+            return cart_contents
 
 
 prod1 = Product("Tshirt", 50, 2)
@@ -49,6 +60,6 @@ cart1.add_to_cart(prod2)
 
 cart1.display_cart()
 
-cart1.remove_from_cart("Bat")
+cart1.remove_from_cart("t")
 
 cart1.display_cart()
