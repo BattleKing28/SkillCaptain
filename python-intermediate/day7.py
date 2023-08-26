@@ -29,12 +29,13 @@ class User:
 def register_user(user_name, user_email, user_password):
     for user in users:
         if user["user_email"] == user_email:
-            print("Email already in use")
+            print("\nEmail already in use")
             return
 
     current_user = User(user_name, user_email, str(hash(user_password)))
-    users.append(current_user)
-    # print(current_user)
+    # appending the result of current_user.__dict__ in the users array since __dict__ returns the dictionary representation of the user object
+    users.append(current_user.__dict__)
+    # print(current_user.__dict__)
     print("User registered successfully")
     return current_user
 
@@ -54,6 +55,9 @@ while True:
 
 # print(users)
 
+
+# newuser = User("mark", "mark@", "516546")
+# print(newuser.__dict__)
 
 # if user was already present new_user will be empty
 # if new_user:
