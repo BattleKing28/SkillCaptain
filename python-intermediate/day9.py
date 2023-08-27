@@ -37,8 +37,12 @@ class Cart:
             print("Cart is empty.\n")
             return "Cart is empty.\n"
         else:
+            cart_contents = []
             for item in self.cart_items:
-                item.display_product_info()
+                cart_contents.append(item.product_name)
+            # for item in self.cart_items:
+            #     item.display_product_info()
+            print(cart_contents)
 
 
 prod1 = Product("Tshirt", 50, 2)
