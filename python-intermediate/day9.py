@@ -9,13 +9,6 @@ class Product:
             f"Name: {self.product_name}\n Price: {self.product_price}\n Quantity: {self.product_quantity}\n"
         )
 
-    def __eq__(self, other) -> bool:
-        return (
-            self.product_name == other.product_name
-            and self.product_price == other.product_price
-            and self.product_quantity == other.product_quantity
-        )
-
 
 class Cart:
     def __init__(self, user_name):
@@ -44,10 +37,8 @@ class Cart:
             print("Cart is empty.\n")
             return "Cart is empty.\n"
         else:
-            cart_contents = []
             for item in self.cart_items:
-                cart_contents.append(item)
-            return cart_contents
+                item.display_product_info()
 
 
 prod1 = Product("Tshirt", 50, 2)

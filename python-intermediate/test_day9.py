@@ -25,7 +25,7 @@ class CartFunctionality(unittest.TestCase):
     def test_remove_invalid_product(self):
         self.cart1.add_to_cart(self.prod1)
         self.cart1.add_to_cart(self.prod2)
-        self.assertEquals(
+        self.assertEqual(
             self.cart1.remove_from_cart("Hat"), "Product doesn't exist in the cart\n"
         )
         print(self.cart1.remove_from_cart("Hat"))
